@@ -258,9 +258,34 @@ order by Lastname
     /*todo подгрузить данные по вакцинации в глобал*/
     /*составить запрос об вакцинации*/
 
-    /*todo информацию о пациенте по его мастериндексу*/
+    /*о пациенте по его мастериндексу*/
     public function get_by_masterindex($masterindex)
     {
+        $masterindex=$this->security->xss_clean($masterindex);
+
+        $sql="select Test.VACPatientClass_GetByMIP('".$masterindex."') a";
+
+        $query = $this->cacheDB->query($sql);
+        $row=$query->result_array();
+        $row = $row[0]['a'];
+        $row=mb_convert_encoding($row,"UTF-8","Windows-1251");
+        $row=json_decode($row);
+        /*$row=explode("||",$row);
+        foreach($row as $key=>$field)
+        {
+            if($field!='') {
+                $field = explode('##', $field);
+                $row[$key] = $field;
+            }
+        }*/
+        return $row;
+
+
+
+        //$row=explode("||",$row);
+        //return $row;
+
+
 
     }
 

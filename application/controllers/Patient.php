@@ -44,12 +44,17 @@ class Patient extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('head');
-		$this->data['patients']=$this->patient_model->GetaTop100();
-		$this->data['test']=$this->patient_model->test1();
+		//$this->data['patients']=$this->patient_model->GetaTop100();
+		//$this->data['test']=$this->patient_model->test1();
 		$this->load->view('patients/search_form',$this->data);
 		$this->load->view('patients/index',$this->data);
 		$this->load->view('footer');
 
+	}
+
+	public function get_by_mip($mip)
+	{
+		print_r($this->patient_model->get_by_masterindex($mip));
 	}
 
 
