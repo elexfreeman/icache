@@ -185,19 +185,9 @@ class Patient_model extends CI_Model
     }
 
 
+    /*загружает мастер-индексы пациентов и выстраивает базу их же*/
     public function LoadPatients()
     {
-        /*
-         * Property FirstName As %String(EXTERNALSQLNAME = "FirstName", EXTERNALSQLTYPE = 12, MAXLEN = 48) [ SqlColumnNumber = 3, SqlFieldName = FirstName ];
-
-Property MiddleName As %String(EXTERNALSQLNAME = "MiddleName", EXTERNALSQLTYPE = 12, MAXLEN = 48) [ SqlColumnNumber = 4, SqlFieldName = MiddleName ];
-
-Property LastName As %String(EXTERNALSQLNAME = "LastName", EXTERNALSQLTYPE = 12, MAXLEN = 48) [ SqlColumnNumber = 5, SqlFieldName = LastName ];
-
-Property BirthDate As %TimeStamp(EXTERNALSQLNAME = "BirthDate", EXTERNALSQLTYPE = 93) [ SqlColumnNumber = 6, SqlFieldName = BirthDate ];
-*/
-        // $sql='TRUNCATE TABLE Test.VACPatients';
-        //  $this->cacheDB->query($sql);
 
         /*составляем запро на кажды 10-к*/
         $year = 1900;
@@ -260,12 +250,21 @@ order by Lastname
 
                     $this->icache->update($this->PatientsCache,$VACPatientTree);
                 }
-
-
             }
             $year = $year + 3;
         }
     }
+
+    /*todo подгрузить данные по вакцинации в глобал*/
+    /*составить запрос об вакцинации*/
+
+    /*todo информацию о пациенте по его мастериндексу*/
+    public function get_by_masterindex($masterindex)
+    {
+
+    }
+
+
 
 
 
