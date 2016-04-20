@@ -108,9 +108,9 @@ class Mpi_model extends CI_Model
     /*$this->mpi_model->get('КАЗАНЦЕВ','ВЯЧЕСЛАВ','ПЕТРОВИЧ','1973-03-21');*/
     public function get($familyName,$givenName,$middleName,$dob)
     {
-        $familyName=mb_convert_encoding($familyName,"Windows-1251","UTF-8");
+       /* $familyName=mb_convert_encoding($familyName,"Windows-1251","UTF-8");
         $givenName=mb_convert_encoding($givenName,"Windows-1251","UTF-8");
-        $middleName=mb_convert_encoding($middleName,"Windows-1251","UTF-8");
+        $middleName=mb_convert_encoding($middleName,"Windows-1251","UTF-8");*/
 
         $sql="select mpiid, dob
             from isc_mprl.Patient

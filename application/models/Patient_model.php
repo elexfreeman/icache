@@ -14,82 +14,82 @@
 VACPatientTree
 
 Верхний уровень MasterIndexPatient
-VACPatientTree['mip']
+VACPatientTree[$mip]
 Персональные данные
-VACPatientTree['mip']['personal_data']
-VACPatientTree['mip']['personal_data'][$id]['familyName']
-VACPatientTree['mip']['personal_data'][$id]['givenName']
-VACPatientTree['mip']['personal_data'][$id]['middleName']
-VACPatientTree['mip']['personal_data'][$id]['dob']
-VACPatientTree['mip']['personal_data'][$id]['Sex']
-VACPatientTree['mip']['personal_data'][$id]['Snils']
-VACPatientTree['mip']['personal_data'][$id]['Ein']
+VACPatientTree[$mip]['personal_data']
+VACPatientTree[$mip]['personal_data'][$id]['familyName']
+VACPatientTree[$mip]['personal_data'][$id]['givenName']
+VACPatientTree[$mip]['personal_data'][$id]['middleName']
+VACPatientTree[$mip]['personal_data'][$id]['dob']
+VACPatientTree[$mip]['personal_data'][$id]['Sex']
+VACPatientTree[$mip]['personal_data'][$id]['Snils']
+VACPatientTree[$mip]['personal_data'][$id]['Ein']
 
 Участок обслуживания
-VACPatientTree['mip']['ServiceArea']
+VACPatientTree[$mip]['ServiceArea']
 
 Адрес проживания
-VACPatientTree['mip']['LivingAddress']
-VACPatientTree['mip']['LivingAddress'][$DateModified]
-VACPatientTree['mip']['LivingAddress'][$DateModified]['Building']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['BuildingLtr']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['Apartment']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['ApartmentLtr']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['BuildingCrp']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['BuildingCrp']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['Street']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['RegionName']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['DistrictName']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['CityName']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['TownName']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['Description']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['OkatoCodeTerInt']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['OkatoCode1Int']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['OkatoCode2Int']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['OkatoCode3Int']
-VACPatientTree['mip']['LivingAddress'][$DateModified]['OkatoCodeRazdel']
+VACPatientTree[$mip]['LivingAddress']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['Building']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['BuildingLtr']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['Apartment']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['ApartmentLtr']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['BuildingCrp']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['BuildingCrp']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['Street']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['RegionName']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['DistrictName']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['CityName']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['TownName']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['Description']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['OkatoCodeTerInt']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['OkatoCode1Int']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['OkatoCode2Int']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['OkatoCode3Int']
+VACPatientTree[$mip]['LivingAddress'][$DateModified]['OkatoCodeRazdel']
 
 Адрес регистрации
-VACPatientTree['mip']['RegistrationAddress']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['Building']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['BuildingLtr']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['Apartment']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['ApartmentLtr']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['BuildingCrp']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['BuildingCrp']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['Street']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['RegionName']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['DistrictName']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['CityName']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['TownName']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['Description']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['OkatoCodeTerInt']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['OkatoCode1Int']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['OkatoCode2Int']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['OkatoCode3Int']
-VACPatientTree['mip']['RegistrationAddress'][$DateModified]['OkatoCodeRazdel']
+VACPatientTree[$mip]['RegistrationAddress']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['Building']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['BuildingLtr']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['Apartment']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['ApartmentLtr']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['BuildingCrp']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['BuildingCrp']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['Street']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['RegionName']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['DistrictName']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['CityName']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['TownName']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['Description']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['OkatoCodeTerInt']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['OkatoCode1Int']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['OkatoCode2Int']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['OkatoCode3Int']
+VACPatientTree[$mip]['RegistrationAddress'][$DateModified]['OkatoCodeRazdel']
 
 Документ
-VACPatientTree['mip']['document'][$id]
-VACPatientTree['mip']['document'][$id]['type']
-VACPatientTree['mip']['document'][$id]['Serie']
-VACPatientTree['mip']['document'][$id]['SerieNumber']
-VACPatientTree['mip']['document'][$id]['IssuedBy']
-VACPatientTree['mip']['document'][$id]['IssueDate']
+VACPatientTree[$mip]['document'][$id]
+VACPatientTree[$mip]['document'][$id]['type']
+VACPatientTree[$mip]['document'][$id]['Serie']
+VACPatientTree[$mip]['document'][$id]['SerieNumber']
+VACPatientTree[$mip]['document'][$id]['IssuedBy']
+VACPatientTree[$mip]['document'][$id]['IssueDate']
 
 Полюсы
-VACPatientTree['mip']['policy'][$id]['number']
-VACPatientTree['mip']['policy'][$id]['Serie']
-VACPatientTree['mip']['policy'][$id]['InsuranceCompanyCode']
-VACPatientTree['mip']['policy'][$id]['DateAdded']
+VACPatientTree[$mip]['policy'][$id]['number']
+VACPatientTree[$mip]['policy'][$id]['Serie']
+VACPatientTree[$mip]['policy'][$id]['InsuranceCompanyCode']
+VACPatientTree[$mip]['policy'][$id]['DateAdded']
 
-VACPatientTree['mip']['card']
+VACPatientTree[$mip]['card']
 
-VACPatientTree['mip']['goal_group']
-VACPatientTree['mip']['med_exemption']
+VACPatientTree[$mip]['goal_group']
+VACPatientTree[$mip]['med_exemption']
 
-VACPatientTree['mip']['med_exemption']
+VACPatientTree[$mip]['med_exemption']
 
 [AKTPAK].[AKPC_DOCTORS]
 VACAKTPAKDoctors[$DRCODE]
@@ -124,10 +124,15 @@ class Patient_model extends CI_Model
     public function __construct()
     {
         $this->cacheDB = $this->load->database('default', TRUE);
-        $this->srv224DB = $this->load->database('srv224', TRUE);
-        $this->srv224DB = $this->load->database('srvEreg', TRUE);
+        //$this->srv224DB = $this->load->database('srv224', TRUE);
+        $this->srvEreg = $this->load->database('srvEreg', TRUE);
         date_default_timezone_set('Europe/London');
         $this->load->helper('url');
+        /*Загружаем библиотеку вставки в каше*/
+        $this->load->library('icache');
+        $this->icache->init('default');
+        /*загружаем библиотеку поиска mip*/
+        $this->load->model('mpi_model');
     }
 
     /*Загружаем всех пациентов из базы вакцины*/
@@ -180,7 +185,7 @@ class Patient_model extends CI_Model
     }
 
 
-    public function LoadPatients_old()
+    public function LoadPatients()
     {
         /*
          * Property FirstName As %String(EXTERNALSQLNAME = "FirstName", EXTERNALSQLTYPE = 12, MAXLEN = 48) [ SqlColumnNumber = 3, SqlFieldName = FirstName ];
@@ -201,7 +206,7 @@ Property BirthDate As %TimeStamp(EXTERNALSQLNAME = "BirthDate", EXTERNALSQLTYPE 
             $yeark = $year + 2;
             $sql = "
   Select
-  patient.lastName,patient.FirstName,patient.middleName,patient.BirthDate, patient.enp
+  patient.lastName,patient.FirstName,patient.middleName,patient.BirthDate
 
   , Count(*) p_count
   from [vaccination2].[dbo].[VACD_Patient]  patient
@@ -209,7 +214,7 @@ Property BirthDate As %TimeStamp(EXTERNALSQLNAME = "BirthDate", EXTERNALSQLTYPE 
    BirthDate   BETWEEN '" . $year . "0101 00:00:00' AND '" . $yeark . "0101 00:00:00'
    and enp is not null
 
-  Group by patient.FirstName,patient.lastName,patient.middleName,BirthDate,enp
+  Group by patient.FirstName,patient.lastName,patient.middleName,BirthDate
 
   having
     --Count(*) > 1 and
@@ -228,23 +233,35 @@ order by Lastname
             echo "BETWEEN " . $year . " AND " . $yeark . "\n";
             /*Получаем пациентов из базы*/
             echo "SEARCH FROM SQL \n";
+            /*освобождаем память*/
             unset($query);
             unset($patients);
-            $query = $this->srv224DB->query($sql);
+            $query = $this->srvEreg->query($sql);
             $patients = $query->result_array();
             echo "INSERT IN TO CACHE \n";
+            /*id персональных данных*/
+            $id=1;
             foreach ($patients as $patient) {
+                /*Получаем mip пациента*/
+                $patient['BirthDate'] = strtotime( $patient['BirthDate'] );
+                $patient['BirthDate'] = date( 'Y-m-d', $patient['BirthDate'] );
+                print_r($patient);
+                $mip = $this->mpi_model->get($patient['lastName'],$patient['FirstName'],$patient['middleName'],$patient['BirthDate']);
 
-                /*  $sql= "INSERT INTO Test.VACPatients (  FirstName,MiddleName,LastName,BirthDate) VALUES
-  ('".$patient['FirstName']."','".$patient['middleName']."','".$patient['lastName']."','".$patient['BirthDate']."' )
-  ";*/
-                // $this->cacheDB->query($sql);
-                $this->insert_patients_to_cache($patient['FirstName'],
-                    $patient['lastName'],
-                    $patient['middleName'],
-                    $patient['BirthDate'],
-                    $patient['enp']
-                );
+                echo $mip."\n";
+                if($mip!='')
+                {
+                    /*Персональные данные*/
+                    unset($VACPatientTree);
+                    $VACPatientTree[$mip]['personal_data'][$id]['familyName'] = $patient['lastName'];
+                    $VACPatientTree[$mip]['personal_data'][$id]['givenName'] = $patient['FirstName'];
+                    $VACPatientTree[$mip]['personal_data'][$id]['middleName'] = $patient['middleName'];
+                    $VACPatientTree[$mip]['personal_data'][$id]['dob'] = $patient['BirthDate'];
+
+                    $this->icache->update($this->PatientsCache,$VACPatientTree);
+                }
+
+
             }
             $year = $year + 3;
         }

@@ -12,6 +12,7 @@ class Eln extends CI_Controller {
 		/*Загружаем  библиотеку сессий*/
 		$this->load->library('session');
 
+		/*Загружаем библиотеку вставки в каше*/
 		$this->load->library('icache');
 		$this->icache->init('default');
 
