@@ -54,7 +54,13 @@ class Patient extends CI_Controller {
 
 	public function get_by_mip($mip)
 	{
-		print_r($this->patient_model->get_by_masterindex($mip));
+		print_r($this->patient_model->get_next_by_mip($mip));
+	}
+
+	/*Загрузка инфы по вакцинации*/
+	public function load_vaccination()
+	{
+		$this->patient_model->load_vaccination();
 	}
 
 

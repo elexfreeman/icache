@@ -84,7 +84,10 @@ VACPatientTree[$mip]['policy'][$id]['Serie']
 VACPatientTree[$mip]['policy'][$id]['InsuranceCompanyCode']
 VACPatientTree[$mip]['policy'][$id]['DateAdded']
 
+Карта
 VACPatientTree[$mip]['card']
+
+
 
 VACPatientTree[$mip]['goal_group']
 VACPatientTree[$mip]['med_exemption']
@@ -255,11 +258,34 @@ order by Lastname
         }
     }
 
+    /*Зазрузка инфо по прививкам*/
+    /*
+     таблица VACD_PatinetVaccination
+    Карта
+    VACPatientTree[$mip]['vaccination']
+     * */
+    public function load_vaccination()
+    {
+        /*перебираем всех пациентов из cache*/
+        /*Устанавливаем стартовый mpi*/
+        $mip=1;
+        for($i=1;$i<100;$i++)
+        {
+            $patient=$this->get_next_by_mip($mip);
+            print_r($patient);
+
+
+            $mip=$patient->mpiid;
+        }
+
+
+    }
+
     /*todo подгрузить данные по вакцинации в глобал*/
     /*составить запрос об вакцинации*/
 
     /*о пациенте по его мастериндексу*/
-    public function get_by_masterindex($masterindex)
+    public function get_by_mip($masterindex)
     {
         $masterindex=$this->security->xss_clean($masterindex);
 
@@ -270,24 +296,28 @@ order by Lastname
         $row = $row[0]['a'];
         $row=mb_convert_encoding($row,"UTF-8","Windows-1251");
         $row=json_decode($row);
-        /*$row=explode("||",$row);
-        foreach($row as $key=>$field)
-        {
-            if($field!='') {
-                $field = explode('##', $field);
-                $row[$key] = $field;
-            }
-        }*/
         return $row;
-
-
-
-        //$row=explode("||",$row);
-        //return $row;
-
-
-
     }
+
+    /*следующий пациент*/
+    /*если $mip==1 то начинается с первой записи */
+    public function get_next_by_mip($mip)
+    {
+        $masterindex=$this->security->xss_clean($mip);
+
+        $sql="select Test.VACPatientClass_GetNextByMIP('".$mip."') a";
+
+        $query = $this->cacheDB->query($sql);
+        $row=$query->result_array();
+        $row = $row[0]['a'];
+        $row=mb_convert_encoding($row,"UTF-8","Windows-1251");
+        $row=json_decode($row);
+        return $row;
+    }
+
+
+
+
 
 
 
