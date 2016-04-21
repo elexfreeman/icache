@@ -1,10 +1,17 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 08.04.2016
- * Time: 9:36
- */
-echo "<pre>";
-print_r($res);
-echo "</pre>";
+<div class="container">
+    <table class="table">
+        <?php
+        foreach ($res as $row)
+        {
+            ?>
+                <tr>
+                    <td>
+                        <?php print_r($row); ?>
+                    </td>
+                </tr>
+            <?php
+        }
+        ?>
+    </table>
+
+</div>

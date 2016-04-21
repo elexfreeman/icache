@@ -60,7 +60,9 @@ class Patient extends CI_Controller {
 	/*Загрузка инфы по вакцинации*/
 	public function load_vaccination()
 	{
+		$this->load->view('head');
 		$this->patient_model->load_vaccination();
+		$this->load->view('footer');
 	}
 
 

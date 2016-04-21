@@ -138,39 +138,7 @@ class Patient_model extends CI_Model
         $this->load->model('mpi_model');
     }
 
-    /*Загружаем всех пациентов из базы вакцины*/
-    /*вставляем в cache и проставляем мастер индекс*/
-    public function load_from_vac()
-    {
-        $sql="SELECT top 100 [Id]
-      ,[FirstName]
-      ,[MiddleName]
-      ,[LastName]
-      ,[FullName]
-      ,[BirthDate]
-      ,[Sex]
-      ,[Enp]
-      ,[Snils]
-      ,[LpuId]
-      ,[ServiceAreaId]
-      ,[DateModified]
-      ,[LivingAddressId]
-      ,[RegistrationAddressId]
-      ,[WorkPhone]
-      ,[MobilePhone]
-      ,[OrganizationId]
-      ,[Comment]
-      ,[Ein]
-      ,[Mkey]
-      ,[SocialStatusId]
-      ,[PolCounter]
-      ,[PolLpuin]
-      ,[PolExCounter]
-      ,[PolExLpuin]
-      ,[AddressText]
-  FROM [vaccination2].[dbo].[VACD_Patient]";
 
-    }
 
     /*Поиск пациентов*/
     public function Search()
@@ -263,22 +231,93 @@ order by Lastname
      таблица VACD_PatinetVaccination
     Карта
     VACPatientTree[$mip]['vaccination']
+    $id = id пациента в базе вакцинации
+    VACPatientTree[$mip]['vaccination'][$id]
+    VACPatientTree[$mip]['vaccination'][$id]['VaccinationSchemePeriod']
+    VACPatientTree[$mip]['vaccination'][$id]['DateAppointment']
+    VACPatientTree[$mip]['vaccination'][$id]['DateVaccReal']
+    VACPatientTree[$mip]['vaccination'][$id]['DateVaccRealComment']
+    VACPatientTree[$mip]['vaccination'][$id]['PreparationId']
+    VACPatientTree[$mip]['vaccination'][$id]['Doza']
+    VACPatientTree[$mip]['vaccination'][$id]['VacReactionId']
+        Id	Code	Value	Description
+    8	0	Не указано	Не указано
+    1	1	отсутствует	отсутствует
+    2	2	слабая	слабая
+    3	3	умеренная	умеренная
+    4	4	сильная	сильная
+    VACPatientTree[$mip]['vaccination'][$id]['DoctorId']
+    VACPatientTree[$mip]['vaccination'][$id]['VaccinationView']
+    Id	Code	Value	Description
+    1	1	V1	Первая вакцинация
+    2	2	V2	Вторая вакцинация
+    3	3	V3	Третья вакцинация
+    4	4	V4	Четвертая вакцинация
+    5	5	V5	Пятая вакцинация
+    6	6	RV1	Первая ревакцинация
+    7	7	RV2	Вторая ревакцинация
+    8	8	RV3	Третья ревакцинация
+    9	9	RV4	Четвертая ревакцинация
+    10	10	RV5	Пятая ревакцинация
+    11	16	IM	Иммунизация
+    VACPatientTree[$mip]['vaccination'][$id]['VaccinationResultId']
+
+
      * */
+    /**
+     *
+     */
     public function load_vaccination()
     {
         /*перебираем всех пациентов из cache*/
         /*Устанавливаем стартовый mpi*/
         $mip=1;
-        for($i=1;$i<100;$i++)
+        $i=1;
+        while($mip!='')
         {
+            if(($i % 1000)==0)
+            echo $i.' '.$mip."\n";
+
+            /*Получаем пациента по mip*/
             $patient=$this->get_next_by_mip($mip);
-            print_r($patient);
+            /*выбираем из базы вакцины поциента по фио и држд*/
+
+            $patient_vac=$this->get_by_fiod_from_sql($patient->familyName,$patient->givenName,$patient->middleName,$patient->dob);
+            foreach ($patient_vac as $row)
+            {
+
+
+            }
 
 
             $mip=$patient->mpiid;
+            $i++;
+            unset($patient);
+            if($i==100) break;
         }
+    }
 
+    /*выбираем из базы вакцины поциента по фио и држд*/
+    /*выдает id*/
+    public function get_by_fiod_from_sql($LastName,$FirstName,$MiddleName,$BirthDate)
+    {
+        /*конвертируем дату*/
 
+        $BirthDate = strtotime( $BirthDate );
+        $BirthDate = date( 'd.m.Y', $BirthDate );
+        $FirstName=mb_convert_encoding($FirstName,"Windows-1251","UTF-8");
+        $LastName=mb_convert_encoding($LastName,"Windows-1251","UTF-8");
+        $MiddleName=mb_convert_encoding($MiddleName,"Windows-1251","UTF-8");
+        $sql="select id from ".$this->PatientsSQL."
+          where
+             FirstName='$FirstName'
+             and MiddleName='$MiddleName'
+             and LastName='$LastName'
+             and BirthDate = '$BirthDate'
+          ";
+
+        $query = $this->srvEreg->query($sql);
+        return $query->result_array();
     }
 
     /*todo подгрузить данные по вакцинации в глобал*/
