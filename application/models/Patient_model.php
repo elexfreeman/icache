@@ -281,19 +281,86 @@ order by Lastname
             /*Получаем пациента по mip*/
             $patient=$this->get_next_by_mip($mip);
             /*выбираем из базы вакцины поциента по фио и држд*/
+            $VACPatientTree = array();
 
+
+
+            $this->icache->update($this->PatientsCache,$VACPatientTree);
             $patient_vac=$this->get_by_fiod_from_sql($patient->familyName,$patient->givenName,$patient->middleName,$patient->dob);
-            foreach ($patient_vac as $row)
+            foreach ($patient_vac as $patient_vac_row)
             {
+                $sql="SELECT  [vac].[Id]
+      ,[vac].[PatientId]
+      ,[vac].[VaccinationSchemePeriodId]
+      ,[vac].[DateAppointment]
+      ,[vac].[DateVaccReal]
+      ,[vac].[Comment]
+      ,[vac].[PreparationId]
+      ,[vac].[Doza]
+      ,[vac].[VacReactionId]
+      ,[vac].[UserId]
+      ,[vac].[DoctorId]
+      ,[doctor].[Code] Doctor_code
+      ,[vac].[VaccinationViewId]
+      ,[vac].[DateModified]
+      ,[vac].[Serie]
+      ,[vac].[VaccinationResultId]
+      ,[vac].[IsDMark]
+      ,[vac].[TourVaccinationId]
+      ,[vac].[PolCounter]
+      ,[vac].[PolLpuin]
+      ,[vac].[PolExCounter]
+      ,[vac].[PolExLpuin]
+      ,[vac].[Papule]
+      ,[vac].[PreparationCKey]
+      ,[vac].[LpuId]
+  FROM [vaccination2].[dbo].[VACD_PatientVaccination] vac
 
+  left join [vaccination2].[dbo].[VACM_Doctor] doctor
+  on vac.DoctorId=doctor.id
+  where PatientId=".$patient_vac_row['id'];
 
+                $query = $this->srvEreg->query($sql);
+                foreach($query->result_array() as $row)
+                {
+                    $row['DateAppointment'] = strtotime( $row['DateAppointment'] );
+                    $row['DateAppointment'] = date( 'Y-m-d', $row['DateAppointment'] );
+
+                    $row['DateVaccReal'] = strtotime( $row['DateVaccReal'] );
+                    $row['DateVaccReal'] = date( 'Y-m-d', $row['DateVaccReal'] );
+
+                    $row['DateModified'] = strtotime( $row['DateModified'] );
+                    $row['DateModified'] = date( 'Y-m-d', $row['DateModified'] );
+
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['VaccinationSchemePeriod']=$row['VaccinationSchemePeriodId'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['DateAppointment']=$row['DateAppointment'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['DateVaccReal']=$row['DateVaccReal'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['Comment']=$row['Comment'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['PreparationId']=$row['PreparationId'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['Doza']=$row['Doza'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['Doctor_code']=$row['Doctor_code'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['VaccinationViewId']=$row['VaccinationViewId'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['DateModified']=$row['DateModified'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['Serie']=$row['Serie'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['VaccinationResultId']=$row['VaccinationResultId'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['TourVaccinationId']=$row['TourVaccinationId'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['PolCounter']=$row['PolCounter'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['PolLpuin']=$row['PolLpuin'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['PolExCounter']=$row['PolExCounter'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['PolExLpuin']=$row['PolExLpuin'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['Papule']=$row['Papule'];
+                    $VACPatientTree[$mip]['vaccination'][$row['Id']]['PreparationCKey']=$row['PreparationCKey'];
+                    $this->icache->update($this->PatientsCache,$VACPatientTree);
+                    print_r($VACPatientTree);
+                }
             }
 
 
             $mip=$patient->mpiid;
             $i++;
             unset($patient);
-            if($i==100) break;
+            unset($patient_save);
+            if($i==10) break;
         }
     }
 
