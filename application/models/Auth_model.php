@@ -1,13 +1,24 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/*Модель логинов*/
+/*
+ Описание глобалов
+^Test.VACUsers("admin","group")="administrator"
+^Test.VACUsers("admin","password")="!1qazxsw2"
 
+
+ * */
 
 class Auth_model extends CI_Model
 {
+    public $cacheDB;
+
+
+    public $UsersCache = 'Test.VACUsers';
 
     public function __construct()
     {
 
-        $this->load->database();
+        $this->cacheDB = $this->load->database('default', TRUE);
 
         $this->load->helper('url');
     }
