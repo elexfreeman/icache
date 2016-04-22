@@ -36,20 +36,17 @@ class Auth extends CI_Controller {
     public function login()
     {
         $auth=$this->auth_model->GetUserByNameAndPass($_POST['username'],$_POST['password']);
-        print_r($auth);
-       if( $auth->login!=0)
+       if( $auth->login==$_POST['username'])
         {
-            echo "auth";
-
 
             $this->session->set_userdata('username', $_POST['username']);
-           // header('Location: '.base_url());
-            //exit;
+           header('Location: '.base_url());
+            exit;
         }
         else
         {
-           // header('Location: '.base_url('auth'));
-           // exit;
+            header('Location: '.base_url('auth'));
+            exit;
         }
 
 
