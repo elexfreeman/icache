@@ -25,9 +25,9 @@ class Auth extends CI_Controller {
         }
         else
         {
-            $this->load->view('head');
+            $this->load->view('nf_head');
             $this->load->view('auth/loginform',$this->data);
-            $this->load->view('footer');
+            $this->load->view('nf_footer');
         }
     }
 
