@@ -40,6 +40,8 @@ class Auth_model extends CI_Model
     /*Проверка на существование юзера*/
     public function  GetUserByNameAndPass($username,$password)
     {
+        $username=mb_convert_encoding($username,"Windows-1251","UTF-8");
+        $password=mb_convert_encoding($password,"Windows-1251","UTF-8");
         $sql="select ".$this->UsersCache."_GetUser('$username','$password') a";
 
         $query = $this->cacheDB->query($sql);
