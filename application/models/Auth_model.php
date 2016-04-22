@@ -23,10 +23,9 @@ class Auth_model extends CI_Model
         $this->load->helper('url');
     }
 
-    public function GetAllUSers()
+    public function GetAllUsers()
     {
-        $query = $this->db->get('lpu_users');
-        return $query->result_array();
+
     }
 
     public function IsLogin()
@@ -41,15 +40,14 @@ class Auth_model extends CI_Model
     /*Проверка на существование юзера*/
     public function  GetUserByNameAndPass($username,$password)
     {
-       $username = $this->security->xss_clean($username);
-        $password = $this->security->xss_clean($password);
-        $sql="SELECT * FROM [LOGINS].[dbo].[lpu_users] where
+        $sql="select ".$this->UsersCache."_GetUser('$username','$password') a";
 
-(username='".$username."')
-and(password='".$password."')
-";
-        $query = $this->db->query($sql);
-        return $query->result();
+        $query = $this->cacheDB->query($sql);
+        $row=$query->result_array();
+        $row = $row[0]['a'];
+        $row=mb_convert_encoding($row,"UTF-8","Windows-1251");
+        $row=json_decode($row);
+        return $row;
     }
 
     /*выдает имя зареганого пользователя*/

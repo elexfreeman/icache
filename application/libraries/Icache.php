@@ -111,7 +111,8 @@ class Icache {
 
         }
 
-        //$res2['kk']=$res;
+        unset($obj);
+        unset($res);
         return $res2;
 
 

@@ -271,7 +271,7 @@ order by Lastname
     {
         /*перебираем всех пациентов из cache*/
         /*Устанавливаем стартовый mpi*/
-        $mip=1;
+        $mip='630821257642';
         $i=1;
         while($mip!='')
         {
@@ -409,7 +409,7 @@ order by Lastname
     /*если $mip==1 то начинается с первой записи */
     public function get_next_by_mip($mip)
     {
-        $masterindex=$this->security->xss_clean($mip);
+        $mip=$this->security->xss_clean($mip);
 
         $sql="select Test.VACPatientClass_GetNextByMIP('".$mip."') a";
 
