@@ -25,18 +25,20 @@ class Auth extends CI_Controller {
         }
         else
         {
+            $this->data['error']='1';
             $this->load->view('nf_head');
             $this->load->view('auth/loginform',$this->data);
             $this->load->view('nf_footer');
-        }
+       }
     }
 
     /*Событие входа пользователя*/
     public function login()
     {
-        if( count($this->auth_model->GetUserByNameAndPass($_POST['username'],$_POST['password']))>0)
+        $auth=$this->auth_model->GetUserByNameAndPass($_POST['username'],$_POST['password']);
+       if( $auth->login!=0)
         {
-            /*Если есть такой юзер */
+
 
             $this->session->set_userdata('username', $_POST['username']);
             header('Location: '.base_url());
@@ -47,6 +49,8 @@ class Auth extends CI_Controller {
             header('Location: '.base_url('auth'));
             exit;
         }
+
+
     }
 
     public function logout()

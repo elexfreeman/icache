@@ -14,11 +14,11 @@
     
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="<?php echo site_url('css/nf/');?>bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/bootstrap.min.css" rel="stylesheet">
 
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
-    <link href="<?php echo site_url('css/nf/');?>nifty.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/nifty.min.css" rel="stylesheet">
 
 
     <!--Font Awesome [ OPTIONAL ]-->
@@ -27,46 +27,46 @@
 
 
     <!--Switchery [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>switchery.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/switchery.min.css" rel="stylesheet">
 
 
     <!--Bootstrap Select [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>bootstrap-select.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/bootstrap-select.min.css" rel="stylesheet">
 
 
     <!--Bootstrap Tags Input [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/bootstrap-tagsinput.css" rel="stylesheet">
 
 
     <!--Chosen [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>chosen.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css/nf/');?>/nf/chosen.min.css" rel="stylesheet">
 
 
     <!--noUiSlider [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>jquery.nouislider.min.css" rel="stylesheet">
-    <link href="<?php echo site_url('css/nf/');?>jquery.nouislider.pips.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/jquery.nouislider.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/jquery.nouislider.pips.min.css" rel="stylesheet">
 
 
     <!--Bootstrap Timepicker [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/bootstrap-timepicker.min.css" rel="stylesheet">
 
 
     <!--Bootstrap Datepicker [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>bootstrap-datepicker.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/bootstrap-datepicker.css" rel="stylesheet">
 
 
     <!--Dropzone [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>dropzone.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/dropzone.css" rel="stylesheet">
 
 
     <!--Summernote [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>summernote.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/summernote.min.css" rel="stylesheet">
 
 
     <!--Demo [ DEMONSTRATION ]-->
-    <link href="<?php echo site_url('css/nf/');?>nifty-demo.min.css" rel="stylesheet">
-    <link href="<?php echo site_url('css/nf/');?>elex.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/jquery.datetimepicker.css">
+    <link href="<?php echo site_url('css');?>/nf/nifty-demo.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css');?>/nf/elex.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo site_url('css');?>jquery.datetimepicker.css">
 
 
 
@@ -74,8 +74,8 @@
     <!--=================================================-->
 
     <!--Page Load Progress Bar [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>pace.min.css" rel="stylesheet">
-    <script src="<?php echo site_url('/js/nf/');?>pace.min.js"></script>
+    <link href="<?php echo site_url('css');?>/nf/pace.min.css" rel="stylesheet">
+    <script src="<?php echo site_url('js');?>/nf/pace.min.js"></script>
 
 
 

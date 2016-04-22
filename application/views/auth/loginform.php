@@ -1,23 +1,31 @@
+<div class="login-form-bg">
 <div class="container">
 
     <?php echo form_open("auth/login");?>
     <div class="panel  panel-primary login-form">
         <div class="panel-heading">
-            <h3 class="panel-title">Проверка на наркологию</h3>
+            <h3 class="panel-title">Р’Р°РєС†РёРЅРѕРїСЂРѕС„РёР»Р°РєС‚РёРєР°</h3>
         </div>
 
+        <?php if($error==1) { ?>
+            <div class="alert alert-danger fade in">
+                <button class="close" data-dismiss="alert">x</button>
+                <strong>РћС€РёР±РєР°!</strong> РќРµ РІРµСЂРЅС‹Рµ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ!
+            </div>
+        <?php }  ?>
         <div class="panel-body">
             <div class="form-group">
-                <label for="exampleInputEmail1">Логин</label>
-                <input type="text" class="form-control" id="login" name="username" placeholder="Ваш код ЛПУ" required>
+                <label for="exampleInputEmail1">Р›РѕРіРёРЅ</label>
+                <input type="text" class="form-control" id="login" name="username" placeholder="Р’Р°С€ РєРѕРґ Р›РџРЈ" required>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Пароль</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="пароль" required>
+                <label for="exampleInputPassword1">РџР°СЂРѕР»СЊ</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="РїР°СЂРѕР»СЊ" required>
             </div>
 
-            <button type="submit" class="btn btn-default">Войти</button>
+            <button type="submit" class="btn btn-default">Р’РѕР№С‚Рё</button>
         </div>
     </div>
     </form>
+</div>
 </div>
