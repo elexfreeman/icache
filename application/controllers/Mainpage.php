@@ -39,7 +39,7 @@ class Mainpage extends CI_Controller {
 
         if( $this->auth_model->IsLogin())
         {
-
+            $this->data['auth']=$this->session->userdata('auth');
             $this->load->view('nf_head',$this->data);
             $this->load->view('navbar/nf_admin_topnav',$this->data);
             /*шаблон страницы*/

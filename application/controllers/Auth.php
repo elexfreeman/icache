@@ -35,12 +35,14 @@ class Auth extends CI_Controller {
     /*Событие входа пользователя*/
     public function login()
     {
+
+
         $auth=$this->auth_model->GetUserByNameAndPass($_POST['username'],$_POST['password']);
        if( $auth->login==$_POST['username'])
         {
 
-            $this->session->set_userdata('username', $_POST['username']);
-           header('Location: '.base_url());
+            $this->session->set_userdata('auth', $auth);
+            header('Location: '.base_url());
             exit;
         }
         else
@@ -54,7 +56,7 @@ class Auth extends CI_Controller {
 
     public function logout()
     {
-        unset($_SESSION['username']);
+        unset($_SESSION['auth']);
         header('Location: '.base_url('auth'));
         exit;
     }

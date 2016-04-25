@@ -4,6 +4,7 @@
  Описание глобалов
 ^Test.VACUsers("admin","group")="administrator"
 ^Test.VACUsers("admin","password")="!1qazxsw2"
+^Test.VACUsers("admin","fullname")="Администратор"
 
 
  * */
@@ -14,13 +15,22 @@ class Auth_model extends CI_Model
 
 
     public $UsersCache = 'Test.VACUsers';
+    public $auth;
+
 
     public function __construct()
     {
 
         $this->cacheDB = $this->load->database('default', TRUE);
-
         $this->load->helper('url');
+        if($this->session->has_userdata('auth'))
+        {
+            $auth = $this->session->has_userdata('auth');
+        }
+        else
+        {
+            $auth=false;
+        }
     }
 
     public function GetAllUsers()
@@ -28,9 +38,14 @@ class Auth_model extends CI_Model
 
     }
 
+    public function UserInfo()
+    {
+        return $this->auth;
+    }
+
     public function IsLogin()
     {
-        if($this->session->has_userdata('username'))
+        if($this->session->has_userdata('auth'))
         {
             return true;
         }
