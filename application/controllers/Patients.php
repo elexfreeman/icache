@@ -51,7 +51,7 @@ class Patients extends CI_Controller {
 		{
 			$this->data['auth']=$this->session->userdata('auth');
 			$this->data['desctop_link']=site_url();
-			$this->data['lpu_list']=$this->aktpak_lpu_model->get_all();
+			//$this->data['lpu_list']=$this->aktpak_lpu_model->get_all();
 //
 
 

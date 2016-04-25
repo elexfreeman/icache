@@ -17,17 +17,18 @@
                                 </div>
                             </div>
                             <div class="col-sm-10">
-                                <p class="text-2x mar-no text-thin">Выберите ЛПУ <?php $lpu_list;?></p>
+                                <p class="text-2x mar-no text-thin">Выберите ЛПУ</p>
                                 <!-- Default choosen -->
                                 <!--===================================================-->
                                 <select data-placeholder="Choose a Country..." id="lpu-select" tabindex="2">
                                     <option value="-" selected>-</option>
                                     <?php
+                                   /*
                                     foreach ($lpu_list as $lpu) {
                                         ?>
                                         <option value="<?php echo $lpu->LPUCODE ?>"><?php echo $lpu->LPUCODE." | ".$lpu->NAME; ?></option>
                                     <?php
-                                    }
+                                    }*/
 
 
                                     ?>
