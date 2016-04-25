@@ -52,7 +52,7 @@
 
                 <div class="col-md-6 col-lg-3">
 
-                    <a href="/lpu">
+                    <a href="<?php echo $lpu_link; ?>">
                         <div class="panel media pad-all">
                             <div class="media-left">
 									<span class="icon-wrap icon-wrap-sm icon-circle bg-success">
@@ -72,7 +72,7 @@
 
                 <div class="col-md-6 col-lg-3">
 
-                    <a href="/patients">
+                    <a href="<?php echo $patients_link; ?>">
                         <div class="panel media pad-all">
                             <div class="media-left">
 									<span class="icon-wrap icon-wrap-sm icon-circle bg-warning">

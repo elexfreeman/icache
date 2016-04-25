@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Patient extends CI_Controller {
+class Patients extends CI_Controller {
 
 	/*переменная для вывода в view*/
 	public $data;
@@ -12,8 +12,11 @@ class Patient extends CI_Controller {
 		/*Загружаем  библиотеку сессий*/
 		$this->load->library('session');
 		/*Загружаем модели*/
+		$this->load->model('auth_model');
+
 
 		$this->load->model('patient_model');
+
 		/*Закгружаем хелперы*/
 		$this->load->helper('form');
 		$this->load->helper('url');
@@ -43,12 +46,25 @@ class Patient extends CI_Controller {
 	/*Выводит данные об пациенте*/
 	public function index()
 	{
-		$this->load->view('head');
-		//$this->data['patients']=$this->patient_model->GetaTop100();
-		//$this->data['test']=$this->patient_model->test1();
-		$this->load->view('patients/search_form',$this->data);
-		$this->load->view('patients/index',$this->data);
-		$this->load->view('footer');
+		if( $this->auth_model->IsLogin())
+		{
+			$this->data['auth']=$this->session->userdata('auth');
+			$this->load->view('nf_head',$this->data);
+			$this->load->view('navbar/nf_admin_topnav',$this->data);
+			/*шаблон страницы*/
+			$this->load->view('patients/search_form',$this->data);
+			$this->load->view('patients/index',$this->data);
+
+			$this->load->view('navbar/nf_admin',$this->data);
+
+			$this->load->view('nf_footer',$this->data);
+		}
+		else
+		{
+			header('Location: '.base_url('auth'));
+			exit;
+		}
+
 
 	}
 

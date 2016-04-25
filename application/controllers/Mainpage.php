@@ -33,8 +33,9 @@ class Mainpage extends CI_Controller {
 	public function index()
 	{
         /*переменные для языков описанны тут: \application\language\*/
-        $this->data['text_h1']=$this->lang->line('text_h1');;
-        $this->data['text_description']=$this->lang->line('text_description');
+
+        $this->data['patients_link']=site_url('patients');
+        $this->data['lpu_link']=site_url('lpu');
 
 
         if( $this->auth_model->IsLogin())

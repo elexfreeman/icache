@@ -76,6 +76,7 @@
 -->
 <script type="text/javascript" src="<?php echo site_url('js/jquery.datetimepicker.js');?>"></script>
 <script src="<?php echo site_url('js/main.js');?>"></script>
+<script src="<?php echo site_url('js/core/patients.js');?>"></script>
 
 
 

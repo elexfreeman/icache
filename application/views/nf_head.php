@@ -39,7 +39,7 @@
 
 
     <!--Chosen [ OPTIONAL ]-->
-    <link href="<?php echo site_url('css/nf/');?>/nf/chosen.min.css" rel="stylesheet">
+    <link href="<?php echo site_url('css/nf/');?>/chosen.min.css" rel="stylesheet">
 
 
     <!--noUiSlider [ OPTIONAL ]-->
@@ -67,6 +67,7 @@
     <link href="<?php echo site_url('css');?>/nf/nifty-demo.min.css" rel="stylesheet">
     <link href="<?php echo site_url('css');?>/nf/elex.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo site_url('css');?>jquery.datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo site_url('css');?>patients.css">
 
 
 
