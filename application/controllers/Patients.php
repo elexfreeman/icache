@@ -16,6 +16,7 @@ class Patients extends CI_Controller {
 
 
 		$this->load->model('patient_model');
+		$this->load->model('aktpak_lpu_model');
 
 		/*Закгружаем хелперы*/
 		$this->load->helper('form');
@@ -49,10 +50,16 @@ class Patients extends CI_Controller {
 		if( $this->auth_model->IsLogin())
 		{
 			$this->data['auth']=$this->session->userdata('auth');
+			$this->data['desctop_link']=site_url();
+			$this->data['lpu_list']=$this->aktpak_lpu_model->get_all();
+//
+
+
 			$this->load->view('nf_head',$this->data);
 			$this->load->view('navbar/nf_admin_topnav',$this->data);
 			/*шаблон страницы*/
-			$this->load->view('patients/search_form',$this->data);
+			$this->data['search_form'] = $this->load->view('patients/search_form',$this->data, TRUE);
+
 			$this->load->view('patients/index',$this->data);
 
 			$this->load->view('navbar/nf_admin',$this->data);

@@ -18,7 +18,7 @@
 
                         <!--Menu list item-->
                         <li class="active-link">
-                            <a href="/">
+                            <a href="<?php echo site_url();?>">
                                 <i class="fa fa-dashboard"></i>
                                 <span class="menu-title">
                                     <strong>Рабочий стол</strong>
@@ -28,7 +28,7 @@
                         </li>
                         <!--Menu list item-->
                         <li class="active-link">
-                            <a href="/lpu">
+                            <a href="<?php echo site_url('lpu');?>">
                                 <i class="fa fa-hospital-o"></i>
 						                    <span class="menu-title">
 												<strong>Участки</strong>
@@ -40,7 +40,7 @@
 
                         <!--Menu list item-->
                         <li class="active-link">
-                            <a href="/patients">
+                            <a href="<?php echo site_url('patients');?>">
                                 <i class="fa fa-wheelchair"></i>
 						                    <span class="menu-title">
 												<strong>Пациенты</strong>

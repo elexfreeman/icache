@@ -36,13 +36,13 @@
         <!--Breadcrumb-->
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <ol class="breadcrumb">
-            <li><a href="/">Рабочий стол</a></li>
-
+            <li><a href="<?php echo $desctop_link; ?>">Рабочий стол</a></li>
+            <li>Пациенты</li>
         </ol>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <!--End breadcrumb-->
 
-
+        <?php echo $search_form; ?>
 
 
         <!--Page content-->
@@ -69,7 +69,7 @@
                     </a>
 
                 </div>
-
+<?php print_r($lpu_list); ?>
                 <div class="col-md-6 col-lg-3">
 
                     <a href="/patients">

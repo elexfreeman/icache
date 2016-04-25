@@ -1,7 +1,9 @@
 
 <div class="container patient-search-container">
-    <div class="panel panel-default patient-search-container">
-        <div class="panel-heading">Поиск</div>
+    <div class="panel  patient-search-container panel-bordered panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Поиск пациентов</h3>
+        </div>
         <div class="panel-body">
             <form>
                 <div class="row">
@@ -10,12 +12,12 @@
                             <div class="col-sm-1">
                                 <div class="media-left">
 									<span class="icon-wrap icon-wrap-sm icon-circle bg-success">
-									<i class="fa fa-user fa-2x"></i>
+									<i class="fa fa-hospital-o fa-2x"></i>
 									</span>
                                 </div>
                             </div>
                             <div class="col-sm-10">
-                                <p class="text-2x mar-no text-thin">Выберите ЛПУ</p>
+                                <p class="text-2x mar-no text-thin">Выберите ЛПУ <?php $lpu_list;?></p>
                                 <!-- Default choosen -->
                                 <!--===================================================-->
                                 <select data-placeholder="Choose a Country..." id="lpu-select" tabindex="2">
@@ -276,8 +278,6 @@
                         </div>
                         <hr>
                     </div>
-
-
 
                     <div class="col-sm-6">
                         <div class="form-group">

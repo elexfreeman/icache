@@ -34,14 +34,14 @@ class Aktpak_lpu_model extends CI_Model
     public function __construct()
     {
         $this->cacheDB = $this->load->database('default', TRUE);
-        $this->srv224DB = $this->load->database('srv224', TRUE);
+        //$this->srv224DB = $this->load->database('srv224', TRUE);
         date_default_timezone_set('Europe/London');
         $this->load->helper('url');
         /*Имя базы*/
         $this->GlobalDB=$this->config->item('cache_db_name');
         $this->load->library('icache');
         $this->icache->init('default');
-        $this->load->model('aktpak_model');
+        //$this->load->model('aktpak_model');
     }
 
     /*Вставляет/обновляет данные об докторе*/
@@ -55,6 +55,68 @@ class Aktpak_lpu_model extends CI_Model
 
     public function get($LPUCODE)
     {
+        $LPUCODE=$this->security->xss_clean($LPUCODE);
+
+        $sql="select Test.AKTPAK_GetByLPUCODE('".$LPUCODE."') a";
+
+        $query = $this->cacheDB->query($sql);
+
+        $row=$query->result_array();
+        $row = $row[0]['a'];
+        //print_r($row);
+        $row=mb_convert_encoding($row,"UTF-8","Windows-1251");
+        $row=json_decode($row);
+
+        return $row;
+    }
+
+    public function get_next($LPUCODE)
+    {
+        $LPUCODE=$this->security->xss_clean($LPUCODE);
+
+        $sql="select Test.AKTPAK_GetByLPUCODENext('".$LPUCODE."') a";
+        //echo $sql."\n";
+
+        $query = $this->cacheDB->query($sql);
+
+        $row=$query->result_array();
+
+        $row = $row[0]['a'];
+        //print_r($row);
+        $row=mb_convert_encoding($row,"UTF-8","Windows-1251");
+
+        $row=explode("||",$row);
+        $res=new stdClass();
+        foreach($row as $key=>$val)
+        {
+            if($val!='')
+            {
+                $val=explode("##",$val);
+
+                $res->$val[0] = $val[1];
+            }
+
+        }
+
+        return $res;
+    }
+
+    public function get_all()
+    {
+        $res=array();
+        $lpucode=1;
+        $k=1;
+        while((int)$lpucode>0)
+        //while($k<1000)
+        {
+            $t=$this->get_next($lpucode);
+            $res[]=$t;
+            //print_r($t);
+            $lpucode=$t->lpucode;
+
+            $k++;
+        }
+        return $res;
 
     }
 
