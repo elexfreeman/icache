@@ -83,13 +83,16 @@ class Aktpak_lpu_model extends CI_Model
 
         $row = $row[0]['a'];
         //print_r($row);
+
         $row=mb_convert_encoding($row,"UTF-8","Windows-1251");
 
         $row=explode("||",$row);
+        //print_r($row);
         $res=new stdClass();
         foreach($row as $key=>$val)
         {
-            if($val!='')
+            //print_r($val);
+           // if($val!='')
             {
                 $val=explode("##",$val);
 
@@ -97,6 +100,7 @@ class Aktpak_lpu_model extends CI_Model
             }
 
         }
+
 
         return $res;
     }
@@ -110,9 +114,9 @@ class Aktpak_lpu_model extends CI_Model
         //while($k<1000)
         {
             $t=$this->get_next($lpucode);
-            $res[]=$t;
+            if((int)$lpucode>0) $res[]=$t;
             //print_r($t);
-            $lpucode=$t->lpucode;
+            $lpucode=$t->LPUCODE;
 
             $k++;
         }
